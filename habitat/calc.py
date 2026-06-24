@@ -41,5 +41,4 @@ def median(values: list[float]) -> float:
     mid = n // 2
     if n % 2:
         return float(s[mid])
-    # BUG: even-length lists should average the two middle values
-    return float(s[mid])
+    return (float(s[mid - 1]) + float(s[mid])) / 2.0
