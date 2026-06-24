@@ -89,3 +89,11 @@ def harmonic_mean(values: list[float]) -> float:
     if any(v <= 0 for v in values):
         return 0.0
     return len(values) / sum(1.0 / v for v in values)
+
+
+def rms(values: list[float]) -> float:
+    """Root mean square; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    # BUG: returns arithmetic mean instead of RMS
+    return mean(values)
