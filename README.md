@@ -1,5 +1,9 @@
 # agent-habitat-demo
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/Nueramarcos/agent-habitat-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/Nueramarcos/agent-habitat-demo/actions/workflows/ci.yml)
+
 Minimal demo repo for **Agent Habitat OS**. Three intentional bugs — boot the stack, run tests, let an agent fix them.
 
 ## Bugs (by design)
