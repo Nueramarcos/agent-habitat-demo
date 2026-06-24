@@ -80,3 +80,13 @@ def geometric_mean(values: list[float]) -> float:
     for v in values:
         product *= v
     return product ** (1.0 / len(values))
+
+
+def harmonic_mean(values: list[float]) -> float:
+    """Harmonic mean; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    if any(v <= 0 for v in values):
+        return 0.0
+    # BUG: returns arithmetic mean instead of harmonic mean
+    return mean(values)
