@@ -3,3 +3,4 @@
 from habitat.calc import clamp, is_palindrome, sum_range
 
 __all__ = ["sum_range", "is_palindrome", "clamp"]
+__version__ = "0.1.0"
