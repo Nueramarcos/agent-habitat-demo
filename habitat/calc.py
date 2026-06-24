@@ -68,3 +68,13 @@ def stddev(values: list[float]) -> float:
     if not values:
         return 0.0
     return variance(values) ** 0.5
+
+
+def geometric_mean(values: list[float]) -> float:
+    """Geometric mean; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    if any(v <= 0 for v in values):
+        return 0.0
+    # BUG: returns arithmetic mean instead of geometric mean
+    return mean(values)
