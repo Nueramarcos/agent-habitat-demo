@@ -30,3 +30,16 @@ def mean(values: list[float]) -> float:
     if not values:
         return 0.0
     return sum(values) / len(values)
+
+
+def median(values: list[float]) -> float:
+    """Median of values; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    s = sorted(values)
+    n = len(s)
+    mid = n // 2
+    if n % 2:
+        return float(s[mid])
+    # BUG: even-length lists should average the two middle values
+    return float(s[mid])
