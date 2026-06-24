@@ -75,7 +75,7 @@ def test_stddev_empty():
 
 
 def test_geometric_mean():
-    assert geometric_mean([1.0, 2.0, 8.0]) == 2.0
+    assert geometric_mean([1.0, 2.0, 4.0]) == 2.0
 
 
 def test_geometric_mean_empty():
