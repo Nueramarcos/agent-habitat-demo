@@ -67,5 +67,4 @@ def stddev(values: list[float]) -> float:
     """Population standard deviation; empty list returns 0.0."""
     if not values:
         return 0.0
-    # BUG: returns variance instead of sqrt(variance)
-    return variance(values)
+    return variance(values) ** 0.5
