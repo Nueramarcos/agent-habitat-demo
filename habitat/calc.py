@@ -29,5 +29,4 @@ def mean(values: list[float]) -> float:
     """Arithmetic mean; empty list returns 0.0."""
     if not values:
         return 0.0
-    # BUG: floor division — should use true division
-    return sum(values) // len(values)
+    return sum(values) / len(values)
