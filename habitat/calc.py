@@ -52,4 +52,4 @@ def mode(values: list[int]) -> int | None:
     for v in values:
         counts[v] = counts.get(v, 0) + 1
     # BUG: picks least frequent value instead of most frequent
-    return min(counts, key=counts.get)
+    return max(counts, key=counts.get)
