@@ -51,5 +51,13 @@ def mode(values: list[int]) -> int | None:
     counts: dict[int, int] = {}
     for v in values:
         counts[v] = counts.get(v, 0) + 1
-    # BUG: picks least frequent value instead of most frequent
     return max(counts, key=counts.get)
+
+
+def variance(values: list[float]) -> float:
+    """Population variance; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    m = mean(values)
+    # BUG: divides by n-1 (sample variance) instead of n (population)
+    return sum((x - m) ** 2 for x in values) / (len(values) - 1)
