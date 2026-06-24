@@ -60,4 +60,4 @@ def variance(values: list[float]) -> float:
         return 0.0
     m = mean(values)
     # BUG: divides by n-1 (sample variance) instead of n (population)
-    return sum((x - m) ** 2 for x in values) / (len(values) - 1)
+    return sum((x - m) ** 2 for x in values) / len(values)
