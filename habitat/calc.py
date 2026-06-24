@@ -105,5 +105,7 @@ def weighted_mean(values: list[float], weights: list[float]) -> float:
         return 0.0
     if sum(weights) == 0:
         return 0.0
-    # BUG: ignores weights and returns plain arithmetic mean
-    return mean(values)
+    # Correctly apply weights
+    weighted_sum = sum(v * w for v, w in zip(values, weights))
+    total_weight = sum(weights)
+    return weighted_sum / total_weight

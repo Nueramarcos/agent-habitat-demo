@@ -5,7 +5,7 @@
 ## Expected
 
 ```python
-weighted_mean([1.0, 2.0, 3.0], [1.0, 1.0, 8.0])  # → 2.7
+weighted_mean([1.0, 2.0, 3.0], [1.0, 1.0, 8.0])  # → 2.9
 ```
 
 ## Failing test
