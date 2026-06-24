@@ -112,7 +112,7 @@ def test_rms_empty():
 
 
 def test_weighted_mean():
-    assert weighted_mean([1.0, 2.0, 3.0], [1.0, 1.0, 8.0]) == 2.9
+    assert weighted_mean([1.0, 2.0, 3.0], [1.0, 1.0, 8.0]) == 2.7
 
 
 def test_weighted_mean_empty():
