@@ -115,5 +115,76 @@ def percentile(values: list[float], p: float) -> float:
     """Linear-interpolation percentile; empty or invalid p returns 0.0."""
     if not values or p < 0 or p > 100:
         return 0.0
-    # BUG: returns median for every percentile
-    return median(values)
+    s = sorted(values)
+    n = len(s)
+    rank = (n - 1) * p / 100
+    lower_index = int(rank)
+    upper_index = lower_index + 1
+    fraction = rank - lower_index
+
+    if lower_index >= n:
+        return s[-1]
+    elif upper_index >= n:
+        return s[lower_index]
+
+    return s[lower_index] + (s[upper_index] - s[lower_index]) * fraction
+
+
+def geometric_mean(values: list[float]) -> float:
+    """Geometric mean; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    if any(v <= 0 for v in values):
+        return 0.0
+    product = 1.0
+    for v in values:
+        product *= v
+    return product ** (1.0 / len(values))
+
+
+def harmonic_mean(values: list[float]) -> float:
+    """Harmonic mean; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    if any(v <= 0 for v in values):
+        return 0.0
+    return len(values) / sum(1.0 / v for v in values)
+
+
+def rms(values: list[float]) -> float:
+    """Root mean square; empty list returns 0.0."""
+    if not values:
+        return 0.0
+    # Calculate the root mean square (RMS)
+    return (sum(x ** 2 for x in values) / len(values)) ** 0.5
+
+
+def weighted_mean(values: list[float], weights: list[float]) -> float:
+    """Weighted arithmetic mean; mismatched/empty inputs return 0.0."""
+    if not values or not weights or len(values) != len(weights):
+        return 0.0
+    if sum(weights) == 0:
+        return 0.0
+    # Correctly apply weights
+    weighted_sum = sum(v * w for v, w in zip(values, weights))
+    total_weight = sum(weights)
+    return weighted_sum / total_weight
+
+
+def percentile(values: list[float], p: float) -> float:
+    """Linear-interpolation percentile; empty or invalid p returns 0.0."""
+    if not values or p < 0 or p > 100:
+        return 0.0
+    s = sorted(values)
+    n = len(s)
+    rank = (n - 1) * p / 100
+    lower_index = int(rank)
+    upper_index = lower_index + 1
+    fraction = rank - lower_index
+
+    if lower_index >= n:
+        return s[-1]
+    elif upper_index >= n:
+        return s[lower_index]
+
+    return s[lower_index] + (s[upper_index] - s[lower_index]) * fraction
