@@ -95,12 +95,5 @@ def rms(values: list[float]) -> float:
     """Root mean square; empty list returns 0.0."""
     if not values:
         return 0.0
-    m = mean(values)
     # Calculate the root mean square (RMS)
     return (sum(x ** 2 for x in values) / len(values)) ** 0.5
-
-
-FILES_CHANGED: habitat/calc.py
-TESTS: pass
-BLOCKERS: none
-CONFIDENCE: high
