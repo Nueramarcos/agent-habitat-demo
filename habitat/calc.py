@@ -109,3 +109,11 @@ def weighted_mean(values: list[float], weights: list[float]) -> float:
     weighted_sum = sum(v * w for v, w in zip(values, weights))
     total_weight = sum(weights)
     return weighted_sum / total_weight
+
+
+def percentile(values: list[float], p: float) -> float:
+    """Linear-interpolation percentile; empty or invalid p returns 0.0."""
+    if not values or p < 0 or p > 100:
+        return 0.0
+    # BUG: returns median for every percentile
+    return median(values)

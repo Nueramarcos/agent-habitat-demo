@@ -11,6 +11,7 @@ from habitat.calc import (
     sum_range,
     variance,
     weighted_mean,
+    percentile,
 )
 
 
@@ -117,3 +118,11 @@ def test_weighted_mean():
 
 def test_weighted_mean_empty():
     assert weighted_mean([], []) == 0.0
+
+
+def test_percentile_p25():
+    assert percentile([1.0, 2.0, 3.0, 4.0], 25.0) == 1.75
+
+
+def test_percentile_empty():
+    assert percentile([], 50.0) == 0.0
