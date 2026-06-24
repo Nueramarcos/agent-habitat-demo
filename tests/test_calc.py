@@ -1,4 +1,17 @@
-from habitat.calc import clamp, geometric_mean, harmonic_mean, is_palindrome, mean, median, mode, rms, stddev, sum_range, variance
+from habitat.calc import (
+    clamp,
+    geometric_mean,
+    harmonic_mean,
+    is_palindrome,
+    mean,
+    median,
+    mode,
+    rms,
+    stddev,
+    sum_range,
+    variance,
+    weighted_mean,
+)
 
 
 def test_sum_range_basic():
@@ -96,3 +109,11 @@ def test_rms():
 
 def test_rms_empty():
     assert rms([]) == 0.0
+
+
+def test_weighted_mean():
+    assert weighted_mean([1.0, 2.0, 3.0], [1.0, 1.0, 8.0]) == 2.9
+
+
+def test_weighted_mean_empty():
+    assert weighted_mean([], []) == 0.0

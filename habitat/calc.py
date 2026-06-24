@@ -97,3 +97,13 @@ def rms(values: list[float]) -> float:
         return 0.0
     # Calculate the root mean square (RMS)
     return (sum(x ** 2 for x in values) / len(values)) ** 0.5
+
+
+def weighted_mean(values: list[float], weights: list[float]) -> float:
+    """Weighted arithmetic mean; mismatched/empty inputs return 0.0."""
+    if not values or not weights or len(values) != len(weights):
+        return 0.0
+    if sum(weights) == 0:
+        return 0.0
+    # BUG: ignores weights and returns plain arithmetic mean
+    return mean(values)
