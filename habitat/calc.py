@@ -76,5 +76,7 @@ def geometric_mean(values: list[float]) -> float:
         return 0.0
     if any(v <= 0 for v in values):
         return 0.0
-    # BUG: returns arithmetic mean instead of geometric mean
-    return mean(values)
+    product = 1.0
+    for v in values:
+        product *= v
+    return product ** (1.0 / len(values))
